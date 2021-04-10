@@ -1,7 +1,7 @@
 def solution(phone_book):
     ## If One -tepnumber is Another Header -> false
     phone_book = sorted(phone_book)
-    for i in range(len(phone_book)):
+    for i in range(len(phone_book)):## O(N*log(N)) +N
         if (i == (len(phone_book)-1)):
             return True
         else:
