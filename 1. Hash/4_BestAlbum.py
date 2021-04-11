@@ -1,10 +1,6 @@
 def solution(genres, plays):
 
-    ## 1. favorite genre -> dictionary ,number
-    ## 2. favorite two album per genre -> two dictionary order:genre, order:plays.
     order_dict, info_dict = make_info(genres, plays) # {"classic":[0,1,2,...]}
-    ## find genre order
-    ## info_dict = sorted(info_dict.items(),key=(lambda x:x[1]),reverse=True)
     answer = sumandlist2dict(order_dict, info_dict)
     return answer
 
@@ -49,13 +45,15 @@ def sumandlist(plays_list,ordered_list):
             best_order.append(i)
         elif(plays_list[best_order[1]]<plays_list[i]):
             best_order[1] = i
+
     return_order.append(ordered_list[best_order[0]])
-    return_order.append(ordered_list[best_order[1]])
+    if (len(ordered_list) > 1):
+        return_order.append(ordered_list[best_order[1]])
     return sum, return_order
 
 
 if __name__ == '__main__':
-    genres = ["classic", "pop", "classic", "classic", "pop"]
-    plays = [500, 600, 150, 800, 2500]
+    genres = ["classic", "pop", "classic", "classic","jazz","pop", "Rock", "jazz"]
+    plays = [500, 600, 150, 800, 1100, 2500, 100, 1000]
     sol = solution(genres, plays)
     print(sol)
