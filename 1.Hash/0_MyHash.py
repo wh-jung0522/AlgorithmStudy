@@ -1,6 +1,6 @@
 # TODO : Make Hash Table
 #        input .txt file
-#           key\t value\n ... 
+#           key value\n ... 
 
 class myHashTable():
     def __init__(self,len=8):
