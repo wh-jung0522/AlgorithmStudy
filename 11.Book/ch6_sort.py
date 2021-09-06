@@ -42,7 +42,10 @@ class mysort():
         left_list = [x for x in tail if x <= pivot]
         right_list = [x for x in tail if x > pivot]
         return self.recur_quick_sort(left_list) + [pivot] + self.recur_quick_sort(right_list)
-        
+    
+    def heap_sort(self):
+        ## TODO
+        return
     
     def in_lib_sort_1(self):
         sorted_list = self.array.copy()
