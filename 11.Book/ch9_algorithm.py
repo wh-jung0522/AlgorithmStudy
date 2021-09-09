@@ -1,11 +1,12 @@
+'''Route Algorithm'''
 import heapq
 INF = int(1e9)
 class route_algorithm():
     def __init__(self, graph, total_node) -> None:
         self.total_node = total_node
-        self.total_vertex = len(graph)
+        self.total_edge = len(graph)
         self.graph = [[] for i in range(self.total_node+1)]
-        for i in range(self.total_vertex): ## list graph -> adjacent 
+        for i in range(self.total_edge): ## list graph -> adjacent 
             if i == 0:
                 continue
             self.graph[graph[i][0]].append((graph[i][1],graph[i][2]))
@@ -71,7 +72,7 @@ class route_algorithm():
             distance[end_node] = end_distance
         
         '''Step2. '''
-        for i in range(self.total_vertex-2): ## O(V)
+        for i in range(self.total_edge-2): ## O(V)
             now = self.get_smallest_node(distance,visited) ## 방문하지 않은 연결 된 노드 중 가장 거리가 짧은 노드로부터 시작한다.
             visited[now] = True ## 방문처리한다.
             for end_node, end_distance in self.graph[now]: ## 현재 노드가 연결되어있는 간선만 본다. 

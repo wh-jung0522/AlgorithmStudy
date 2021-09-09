@@ -1,4 +1,4 @@
-from ch5_data_structure import myQueue,myStack
+''' BFS DFS '''
 from collections import deque
 INF = 999999
 
@@ -27,10 +27,10 @@ class Graph():
                     temp_Adjacency.append(0)
                 else:
                     match = False
-                    for node, vertex in graph_list[i]:
+                    for node, edge in graph_list[i]:
                         if j == node:
                             match = True
-                            temp_Adjacency.append(vertex)
+                            temp_Adjacency.append(edge)
                     if not match:
                         temp_Adjacency.append(INF)    
             AdjMatrix.append(temp_Adjacency)
@@ -52,6 +52,7 @@ class Graph():
         for i,length in graph_list[node_index]:
             if not visited_list[i]:
                 self.DFS(graph_list,i,visited_list)
+
     ''' BFS를 사용하기 위해서는 Queue를 사용'''
     def BFS(self,graph_list,node_index,visited_list):
         visited_list[node_index] = True

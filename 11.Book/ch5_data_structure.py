@@ -1,4 +1,4 @@
-'''Data Structure'''
+''' Data Structure '''
 class myStack():
     def __init__(self) -> None:
         self.stack = []
