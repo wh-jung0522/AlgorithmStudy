@@ -1,6 +1,6 @@
 INF = int(10e9)
 
-## Floyd Warshall -> Fail##
+## Floyd Warshall -> Fail ##
 def solution(n, edge):
     maximum_distance = 0
     count = 0
