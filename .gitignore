@@ -1,2 +1,6 @@
 *.pyc
 *.json
+[kK]akao/
+.idea/AlgorithmStudy.iml
+.idea/misc.xml
+.vscode/settings.json
