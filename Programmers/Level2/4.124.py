@@ -26,7 +26,5 @@ def rule(n:int):
 
     return rule(q)+add_string
 
-
-
 if __name__ == "__main__":
     print(solution(17),122)
