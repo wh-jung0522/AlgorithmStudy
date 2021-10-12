@@ -10,25 +10,23 @@ def solution(a, edges):
         node1, node2 = edge
         graph[node1].append(node2)
         graph[node2].append(node1)
-    _, minimum_result = DFS(graph,0, a)
-    return minimum_result
+    visited_list = [False for _ in range(len_a)]
 
-def DFS(graph,start_node,weight):
+    return DFS_fast(graph,0,a,visited_list)[1]
+
+
+def DFS_fast(graph, start_node, weight, visited_list):
     return_sum = weight[start_node]
     return_count = 0
-    if len(graph[start_node]) == 0:
-        return return_sum, return_count
+    visited_list[start_node] = True
+    
     for next_node in graph[start_node]:
-        temp_graph = copy.deepcopy(graph)
-        temp_graph[next_node].remove(start_node)
-        temp_sum, temp_count = DFS(temp_graph, next_node, weight)
-        if temp_sum == 0:
-            return_count += temp_count
-        else:
-            return_count += temp_count + abs(temp_sum)
-            return_sum += temp_sum
+        if visited_list[next_node] == False:
+            next_sum, next_count = DFS_fast(graph,next_node,weight,visited_list)
+            return_sum += next_sum
+            return_count += next_count
+    return_count += abs(return_sum)
     return return_sum, return_count
-
 
 
 
